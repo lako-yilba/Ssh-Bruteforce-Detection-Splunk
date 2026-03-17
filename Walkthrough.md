@@ -40,7 +40,7 @@ Splunk Enterprise (192.168.56.10:8000)
      Detection
 ```
 
-![Lab Architecture](screenshots/lab.png)
+![Lab Architecture](Screenshots/lab.png)
 
 ---
 
@@ -55,7 +55,7 @@ sudo adduser testuser
 # password set to: password123
 ```
 
-![SSH Running on Ubuntu](screenshots/ssh_status.png)
+![SSH Running on Ubuntu](Screenshots/ssh_status.png)
 
 
 ---
@@ -68,7 +68,7 @@ Before attacking, Nmap was used to confirm SSH was open and running on the targe
 nmap -sV -p 22 192.168.56.10
 ```
 
-![Nmap Scan Result](screenshots/nmap.png)
+![Nmap Scan Result](Screenshots/nmap.png)
 
 Port 22 confirmed open — SSH version visible. Ready to attack.
 
@@ -85,7 +85,7 @@ hydra -l testuser -P /usr/share/wordlists/rockyou.txt \
   ssh://192.168.56.10 -t 4 -V
 ```
 
-![Hydra Attack Running](screenshots/hydra.png)
+![Hydra Attack Running](Screenshots/hydra.png)
 
 ### Metasploit
 
@@ -101,7 +101,7 @@ set VERBOSE true
 run
 ```
 
-![Metasploit Attack Running](screenshots/msfconsole.png)
+![Metasploit Attack Running](Screenshots/msfconsole.png)
 
 Both tools generated failed login attempts. Metasploit eventually found the correct password.
 
@@ -118,7 +118,7 @@ sudo tail -f /var/log/auth.log
 Every failed attempt showed up instantly:
 
 
-![auth.log Live During Attack](screenshots/auth_log.png)
+![auth.log Live During Attack](Screenshots/auth_log.png)
 
 ---
 
@@ -130,7 +130,7 @@ After the forwarder was running, this query confirmed auth.log data was arriving
 index=main sourcetype=linux_secure
 ```
 
-![Splunk Receiving auth.log Data](screenshots/splunk_data.png)
+![Splunk Receiving auth.log Data](Screenshots/splunk_data.png)
 
 ---
 
@@ -196,18 +196,18 @@ Suricata was added to monitor network traffic and detect suspicious activity lik
 
 This complements auth.log by providing network-level visibility.
 
-![Suricata Alerts](screenshots/suricata.png)
+![Suricata Alerts](Screenshots/suricata.png)
 
 ---
 ## 9. Dashboard
 
 A real-time monitoring dashboard was built in Splunk Dashboard Studio with all detection panels in one view.
 
-![Full Dashboard](screenshots/p1.png)
-![Full Dashboard](screenshots/p2.png)
-![Full Dashboard](screenshots/p3.png)
-![Full Dashboard](screenshots/p4.png)
-![Full Dashboard](screenshots/p5.png)
+![Full Dashboard](Screenshots/p1.png)
+![Full Dashboard](Screenshots/p2.png)
+![Full Dashboard](Screenshots/p3.png)
+![Full Dashboard](Screenshots/p4.png)
+![Full Dashboard](Screenshots/p5.png)
 
 **Panels included:**
 - Attack timeline (bar chart showing failed login spikes)
@@ -229,7 +229,7 @@ A scheduled alert was set up to run every 5 minutes based on the threshold query
 
 This means the alert fires automatically whenever any IP crosses 10 failures in a 5-minute window — no manual watching needed.
 
-![Alert Configuration](screenshots/alert.png)
+![Alert Configuration](Screenshots/alert.png)
 
 ---
 
