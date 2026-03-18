@@ -51,8 +51,8 @@ SSH was enabled on Ubuntu Server and a test user with a weak password was create
 ```bash
 sudo systemctl start ssh
 sudo systemctl enable ssh
-sudo adduser testuser
-# password set to: password123
+sudo adduser lako
+# password set to: 123456
 ```
 
 ![SSH Running on Ubuntu](Screenshots/ssh_status.png)
@@ -63,10 +63,6 @@ sudo adduser testuser
 ## 3. Reconnaissance with Nmap
 
 Before attacking, Nmap was used to confirm SSH was open and running on the target.
-
-```bash
-nmap -sV -p 22 192.168.56.10
-```
 
 ![Nmap Scan Result](Screenshots/nmap.png)
 
@@ -79,11 +75,6 @@ Port 22 confirmed open — SSH version visible. Ready to attack.
 Two tools were used to simulate the attack from Kali Linux.
 
 ### Hydra
-
-```bash
-hydra -l testuser -P /usr/share/wordlists/rockyou.txt \
-  ssh://192.168.56.10 -t 4 -V
-```
 
 ![Hydra Attack Running](Screenshots/hydra.png)
 
