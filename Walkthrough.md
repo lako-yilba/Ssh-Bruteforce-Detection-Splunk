@@ -231,8 +231,8 @@ The attack was successfully detected.
 | Detail | Value |
 |---|---|
 | Attacker IP | 192.168.56.20 (Kali Linux) |
-| Target account | testuser |
-| Failures detected | 11 in one 5-minute window |
+| Target account | testuser (lako) |
+| Failures detected | 11 in  one 5-minute window |
 | Threshold | 10 failures / 5 minutes |
 | Alert fired | Yes |
 | Password cracked | Yes (by Metasploit) |
